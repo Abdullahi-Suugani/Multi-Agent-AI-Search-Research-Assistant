@@ -2,7 +2,7 @@
 
 # Multi-Agent-AI-Search-Research-Assistant
 
-Phase 2 implementation: a Next.js/TypeScript workspace with a Tavily Search Agent and Reader Agent. The Reader deduplicates URLs, fetches HTML, falls back to Playwright for rendered pages, extracts explicit metadata/JSON-LD/text, and returns Zod-validated structured data. Missing values are always `unknown`.
+Phase 3 implementation: a Next.js/TypeScript workspace with Tavily Search, Reader, and deterministic Analysis Agents. The Reader deduplicates URLs, fetches HTML, falls back to Playwright for rendered pages, extracts explicit metadata/JSON-LD/text, and returns Zod-validated structured data. The Analysis Agent compares verified reader data, parses explicit prices, removes duplicate products, and reports limitations. Missing values are always `unknown`.
 
 ## Run locally
 

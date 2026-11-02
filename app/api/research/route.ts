@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { readUrls } from "../../../lib/reader-agent";
+import { analyzeReaders } from "../../../lib/analysis-agent";
 
 const schema = z.object({ query: z.string().trim().min(3).max(500) });
 type TavilyResult = { title?: string; url: string; content?: string };
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
         content: r.content || "No extract available.",
       }));
     const reader = await readUrls(results.map((r) => r.url));
-    return NextResponse.json({ results, reader });
+    return NextResponse.json({ results, reader, analysis: analyzeReaders(reader) });
   } catch (e) {
     return NextResponse.json(
       {
